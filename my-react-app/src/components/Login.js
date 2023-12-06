@@ -1,57 +1,44 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
+import './Login.css'; // Your CSS file
 
 const Login = () => {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  const handleLogin = async (e) => {
+    e.preventDefault();
+    const auth = getAuth(); // Get the authentication instance
+    try {
+      await signInWithEmailAndPassword(auth, email, password);
+      console.log('Logged in successfully!');
+      // Redirect or handle successful login
+    } catch (error) {
+      console.error('Login error:', error.message);
+      // Handle login errors (display error message, etc.)
+    }
+  };
+
   return (
-    <div style={{ position: 'fixed', top: '20%', left: '50%', transform: 'translate(-50%, -50%)' }}>
-      <div style={{
-        maxWidth: '400px',
-        width: '90%',
-        backgroundColor: '#f5f5f5',
-        borderRadius: '10px',
-        boxShadow: '0px 10px 20px rgba(0, 0, 0, 0.1)',
-        padding: '40px',
-        marginTop:'100px',
-        textAlign: 'center',
-        marginLeft: '590px',
-      }}>
-        <h2 style={{ fontSize: '32px', fontWeight: 'bold', marginBottom: '30px', color: '#333' }}>
-          Login
-        </h2>
-        <form style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+    <div className="login-container">
+      <div className="login-box">
+        <h2 className="login-heading">Login</h2>
+        <form className="login-form" onSubmit={handleLogin}>
           <input
             type="email"
-            style={{
-              border: '1px solid #ccc',
-              borderRadius: '6px',
-              padding: '12px',
-              outline: 'none',
-              fontSize: '16px',
-            }}
+            className="login-input"
             placeholder="Email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
           />
           <input
             type="password"
-            style={{
-              border: '1px solid #ccc',
-              borderRadius: '6px',
-              padding: '12px',
-              outline: 'none',
-              fontSize: '16px',
-            }}
+            className="login-input"
             placeholder="Password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
           />
-          <button
-            style={{
-              backgroundColor: '#3498db',
-              color: 'white',
-              padding: '12px',
-              borderRadius: '6px',
-              border: 'none',
-              cursor: 'pointer',
-              transition: 'background-color 0.3s ease',
-              fontSize: '18px',
-            }}
-          >
+          <button type="submit" className="login-button">
             Login
           </button>
         </form>
