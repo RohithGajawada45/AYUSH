@@ -1,20 +1,20 @@
 import React, { useState } from 'react';
 import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
+import Home from './Home'; // Import Redirect
 import './Login.css'; // Your CSS file
-import Navigation from './Navigation'; // Import the Navigation component
 
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [loggedIn, setLoggedIn] = useState(false); // State to manage login status
+  const [loggedIn, setLoggedIn] = useState(false); // State to track login status
 
   const handleLogin = async (e) => {
     e.preventDefault();
-    const auth = getAuth(); // Get the authentication instance
+    const auth = getAuth();
     try {
       await signInWithEmailAndPassword(auth, email, password);
       console.log('Logged in successfully!');
-      setLoggedIn(true); // Set loggedIn state to true after successful login
+      setLoggedIn(true); // Set loggedIn to true upon successful login
     } catch (error) {
       console.error('Login error:', error.message);
       // Handle login errors (display error message, etc.)
@@ -22,7 +22,8 @@ const Login = () => {
   };
 
   if (loggedIn) {
-    return <Navigation />; // Display Navigation component after successful login
+    // Redirect to Home page upon successful login
+    return <Home/>;
   }
 
   return (
