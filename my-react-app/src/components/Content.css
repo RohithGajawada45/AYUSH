@@ -1,0 +1,65 @@
+/* Content.css */
+
+/* Styles for the main content container */
+.content-container {
+    position: fixed;
+    top: 50%;
+    left: 30%;
+    transform: translate(-50%, -50%);
+    width: 40%;
+  }
+  
+  /* Styles for the content box */
+  .content-box {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    padding: 40px;
+    text-align: center;
+  }
+  
+  /* Styles for the content image */
+  .content-image {
+    width: 80%;
+    max-width: 300px;
+    border-radius: 50%;
+    margin-bottom: 20px;
+  }
+  
+  /* Styles for the content heading */
+  .content-heading {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-align: center;
+    color: #333;
+  }
+  
+  /* Styles for the content description */
+  .content-description {
+    font-size: 16px;
+    text-align: center;
+    color: #666;
+    line-height: 1.5;
+  }
+  /* Content.css */
+
+/* Styles for larger screens */
+@media screen and (min-width: 768px) {
+  .content-container {
+    width: 50%;
+  }
+}
+
+/* Styles for smaller screens */
+@media screen and (max-width: 480px) {
+  .content-container {
+    width: 90%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .content-box {
+    padding: 20px;
+  }
+  /* Adjust other styles as needed for smaller screens */
+}
