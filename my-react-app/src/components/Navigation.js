@@ -1,28 +1,38 @@
+import React from 'react';
+import './Navigation.css';
 
-'use client';
-
-import Link from 'next/link';
-import { Navbar } from 'flowbite-react';
-
-function Component() {
+const Navigation = () => {
   return (
-    <Navbar fluid rounded>
-      <Navbar.Brand as={Link} href="https://flowbite-react.com">
-        <img src="/favicon.svg" className="mr-3 h-6 sm:h-9" alt="Flowbite React Logo" />
-        <span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white">Flowbite React</span>
-      </Navbar.Brand>
-      <Navbar.Toggle />
-      <Navbar.Collapse>
-        <Navbar.Link href="#" active>
-          Home
-        </Navbar.Link>
-        <Navbar.Link as={Link} href="#">
-          About
-        </Navbar.Link>
-        <Navbar.Link href="#">Services</Navbar.Link>
-        <Navbar.Link href="#">Pricing</Navbar.Link>
-        <Navbar.Link href="#">Contact</Navbar.Link>
-      </Navbar.Collapse>
-    </Navbar>
+    <nav className="navbar">
+      <ul className="navbar-nav">
+        <li className="nav-item">
+          <a href="/" className="nav-link">
+            Home
+          </a>
+        </li>
+        <li className="nav-item">
+          <a href="/about" className="nav-link">
+            About
+          </a>
+        </li>
+        <li className="nav-item">
+          <a href="/services" className="nav-link">
+            Services
+          </a>
+        </li>
+        <li className="nav-item">
+          <a href="/pricing" className="nav-link">
+            Pricing
+          </a>
+        </li>
+        <li className="nav-item">
+          <a href="/contact" className="nav-link">
+            Contact
+          </a>
+        </li>
+      </ul>
+    </nav>
   );
-}
+};
+
+export default Navigation;

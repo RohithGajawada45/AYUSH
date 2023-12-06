@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
 import './Login.css'; // Your CSS file
+import Navigation from './Navigation'; // Import the Navigation component
 
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [loggedIn, setLoggedIn] = useState(false); // State to manage login status
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -12,12 +14,16 @@ const Login = () => {
     try {
       await signInWithEmailAndPassword(auth, email, password);
       console.log('Logged in successfully!');
-      // Redirect or handle successful login
+      setLoggedIn(true); // Set loggedIn state to true after successful login
     } catch (error) {
       console.error('Login error:', error.message);
       // Handle login errors (display error message, etc.)
     }
   };
+
+  if (loggedIn) {
+    return <Navigation />; // Display Navigation component after successful login
+  }
 
   return (
     <div className="login-container">

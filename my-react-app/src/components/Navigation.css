@@ -1,0 +1,35 @@
+/* styles.css */
+
+/* Navbar styles */
+.navbar {
+    background-color: #1a202c;
+    padding: 20px 0;
+  }
+  
+  .navbar-nav {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .nav-item {
+    margin: 0 15px;
+  }
+  
+  /* Navigation link styles */
+  .nav-link {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    transition: color 0.3s ease;
+    padding: 10px 15px;
+    border-radius: 5px;
+  }
+  
+  .nav-link:hover {
+    color: #ffcc00;
+    background-color: #2d3748;
+  }
+  
