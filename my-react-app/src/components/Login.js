@@ -7,6 +7,7 @@ const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [loggedIn, setLoggedIn] = useState(false); // State to track login status
+  const [error, setError] = useState(null); // State to handle login errors
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -18,12 +19,13 @@ const Login = () => {
     } catch (error) {
       console.error('Login error:', error.message);
       // Handle login errors (display error message, etc.)
+      setError('Email or password is incorrect'); // Set error state with error message
     }
   };
 
   if (loggedIn) {
     // Redirect to Home page upon successful login
-    return <Home/>;
+    return <Home />;
   }
 
   return (
@@ -45,6 +47,7 @@ const Login = () => {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
+          {error && <div className="error-message">{error}</div>} {/* Display error message if present */}
           <button type="submit" className="login-button">
             Login
           </button>
