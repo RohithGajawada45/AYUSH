@@ -1,11 +1,12 @@
 import React from 'react';
-import Login from './components/Login'; // Replace with your Login component file location
-import Register from './components/Register'; // Replace with your Register component file location
+import Login from './components/Login';
+import Register from './components/Register';
 import Content from './components/Content';
+import './App.css'; // Import your external CSS file
 
 const App = () => {
   return (
-    <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gridTemplateRows: '1fr 1fr', height: '100vh' }}>
+    <div className="app-container">
       <Content />
       <Login />
       <Register />
